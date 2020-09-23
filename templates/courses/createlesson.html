@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+<!-- <script type="text/javascript">
+	function my_code(){
+	console.log("1")
+	document.getElementById("id_course").value = "tinkumaster";
+	console.log("2")
+	}
+	// window.onload=my_code();
+</script> -->
+<!-- {% block scripts %}{% endblock %} -->
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    
+    <div class="col-sm-4">
+	<form action="./{{title}}" method="post" enctype="multipart/form-data">{%csrf_token%}
+		{{form |crispy}}
+		<input type="submit" name="post">
+	</form>
+        </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+<!-- 	<form action="./{{title}}" method="post" enctype="multipart/form-data">{%csrf_token%}
+		<div class="form-group">
+		{{form.as_p}}
+		<input type="submit" name="post">
+		</div>
+	</form> -->
+
+{% endblock%}

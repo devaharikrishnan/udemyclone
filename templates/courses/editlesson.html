@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	
+{% load crispy_forms_tags %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    
+    <div class="col-sm-4">
+	<form action="./{{pk}}" method="post" enctype="multipart/form-data">{%csrf_token%}
+		{{form |crispy}}
+		<!-- <input type="number" name="postedby" value="{{channelid}}" required id="id_postedby"> -->
+		<input type="submit" name="post">
+	</form>
+        </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+{% endblock%}

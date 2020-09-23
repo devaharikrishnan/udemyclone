@@ -1,0 +1,25 @@
+{% load static %}
+<!-- <script src="{% static 'dist/demo.js'  %}"></script> -->
+<script src="{% static 'frontend/js/vendor/modernizr-3.5.0.min.js'  %}"></script>
+<script src="{% static 'frontend/js/vendor/jquery-3.2.1.min.js'  %}"></script>
+<script src="{% static 'frontend/js/popper.min.js'  %}"></script>
+<script src="{% static 'frontend/js/bootstrap.min.js'  %}"></script>
+<script src="{% static 'frontend/js/slick.min.js'  %}"></script>
+<script src="{% static 'frontend/js/select2.min.js'  %}"></script>
+<script src="{% static 'frontend/js/tinymce.min.js'  %}"></script>
+<script src="{% static 'frontend/js/multi-step-modal.js'  %}"></script>
+<script src="{% static 'frontend/js/jquery.webui-popover.min.js'  %}"></script>
+<script src="{% static 'frontend/js/main.js'  %}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript">
+function my_code(){
+console.log("1")
+var u = window.location.href;
+l = u.split("/");
+document.getElementById("id_course").value = l.pop();
+console.log("2")
+}
+// window.onload=my_code();
+</script>
+{% block scripts %}{% endblock %}

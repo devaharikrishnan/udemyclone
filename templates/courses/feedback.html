@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+<!-- <script type="text/javascript">
+	function my_code(){
+	console.log("1")
+	document.getElementById("id_course").value = "tinkumaster";
+	console.log("2")
+	}
+	// window.onload=my_code();
+</script> -->
+<!-- {% block scripts %}{% endblock %} -->
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<h1 class="btn btn-primary" style="width: 100%;display: inline-block;">Feedbacks</h1>
+		</div>
+	</div>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    
+    <div class="col-sm-4">
+    	{%for f in feed%}
+    	<div class="card" style="width:100%">
+		    <div class="card-body">
+		      <h4 class="card-title">{{f.reviewedby}}</h4>
+		      <p class="card-text">{{f.review}}</p>
+		      <p class="btn btn-primary">{{f.rating}}<i class="fas fa-star filled" style="color: yellow;"></i></p>
+		    </div>
+		</div>
+		{%endfor%}
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+{% endblock%}

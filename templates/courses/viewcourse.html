@@ -1,0 +1,69 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="category-course-list">
+    <ul>
+        {% for course in courses %}
+            <li>
+                <div class="course-box-2">
+                    <div class="course-image">
+                        <a href="{% url 'courses:course-details' course.slug %}">
+                            <img src="/media/{{course.thumbnail}}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="course-details">
+                        <a href="{% url 'courses:course-details' course.slug %}"
+                           class="course-title">{{ course.title }}</a>
+                        {#                                            {{--<a href="" class="course-instructor">--}}#}
+                        {#                                                {{--<span class="instructor-name">first_name last_name</span>--}}#}
+                        {#                                                {{-----}}#}
+                        {#                                            {{--</a>--}}#}
+                        <div>
+                            {%ifequal course.user_id request.user.id%}
+                            <a href="/users/editcourse/{{course.pk}}"><h6>Edit</h6></a>
+                            <a href="/users/createlesson/{{course.pk}}"><h6>Add lesson</h6></a>
+                            {%endifequal%}
+                        </div>
+                        <div class="course-subtitle">
+                            {{ course.short_description }}
+                        </div>
+                        <div class="course-meta">
+                            <span class="">
+                                <i class="fas fa-play-circle"></i>
+                                {{ course.lessons.count }} Lessons
+                            </span>
+                            <span class="">
+                                <i class="far fa-clock"></i>
+                                3 hours
+                            </span>
+                            <span class="">
+                                <i class="fas fa-closed-captioning"></i>English
+                            </span>
+                        </div>
+                    </div>
+                    <div class="course-price-rating">
+                        <div class="course-price">
+                            <span class="current-price">${{ course.price }}</span>
+                            {#                                                {{--<span class="original-price">$300</span>--}}#}
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="d-inline-block average-rating">5</span>
+                        </div>
+                        <div class="rating-number">
+                            33 Ratings
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock%}
